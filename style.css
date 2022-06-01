@@ -1,0 +1,202 @@
+:root {
+    --color-main-bg: hsl(217, 54%, 11%);
+    --color-card-bg: hsl(216, 50%, 16%);
+    --color-line: hsl(215, 32%, 27%);
+    --color-light: hsl(215, 51%, 70%);
+    --color-accent: hsl(178, 100%, 50%);
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--color-main-bg);
+    display: grid;
+    place-items: center;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+.card {
+    max-width: 350px;
+    color: white;
+    border-radius: 0.8rem;
+    background-color: var(--color-card-bg);
+    padding: 1.5em;
+    display: grid;
+    gap: 1rem;
+}
+
+.card__container {
+    position: relative;
+    max-width: 300px;
+    aspect-ratio: 1/1;
+    transition: all .5s ease;
+}
+
+.card__container__img {
+    border-radius: 0.8rem;
+    display: block;
+    opacity: 1;
+    transition: all .5s ease;
+    backface-visibility: hidden;
+}
+
+.card__img__icon {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.card__container:hover {
+    filter: opacity(70%);
+    cursor: pointer;
+}
+
+.card__container:hover .card__img__icon {
+    opacity: 1;
+}
+
+.card__heading {
+    font-size: min(7vw, 1.5rem);
+}
+
+.card__p {
+    color: var(--color-light);
+    font-size: min(5vw, 1.1rem);
+    font-weight: 300;
+}
+
+.card__info {
+    font-size: min(5vw, 1.1rem);
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-line);
+    padding-bottom: 1em;
+}
+
+.card__info__eth {
+    display: flex;
+    color: var(--color-accent);
+    flex: 1;
+}
+
+.card__info__eth span {
+    margin-left: 0.5rem;
+}
+
+.card__info__days {
+    display: flex;
+    color: var(--color-light);
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.card__info__days span {
+    margin-left: 0.2rem;
+}
+
+.card__author {
+    display: flex;
+    align-items: center;
+    font-size: min(5vw, 1.1rem);
+
+}
+
+.card__author__img {
+    max-width: 40px;
+    border: 2px solid white;
+    border-radius: 100vw;
+}
+
+.card__author__p {
+    color: var(--color-light);
+    margin-left: 1rem;
+}
+
+.card__author__p span {
+    color: white;
+}
+
+@media (max-width: 370px) {
+    .card {
+        width: 90%;
+        margin-inline: auto;
+        padding: 1.2em;
+    }
+}
